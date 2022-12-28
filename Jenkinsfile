@@ -1,4 +1,3 @@
-node('workers') { 
 try {
         stage('Checkout'){
             echo "Checking out"
@@ -30,4 +29,3 @@ try {
 finally {
        echo "Cleaning up"
     }
-}
