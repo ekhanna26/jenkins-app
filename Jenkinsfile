@@ -1,18 +1,22 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+        stage ('Clean workspace') {
+          steps {
+            cleanWs()
+          }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+        stage ('Git Checkout') {
+          steps {
+              git branch: 'master', credentialsId: '1', url: 'https://github.com/ekhanna26/jenkins-app.git'
             }
-        }
-        stage('Deploy') {
+          }
+        stage('Echo Workspace') {
+          steps {
+            bat echo "${workspace}"
+          }
+         stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
