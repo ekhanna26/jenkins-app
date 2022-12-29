@@ -16,6 +16,7 @@ pipeline {
           steps {
             bat echo "${workspace}"
           }
+        }
          stage('Deploy') {
             steps {
                 echo 'Deploying....'
